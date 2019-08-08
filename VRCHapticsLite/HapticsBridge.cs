@@ -62,8 +62,7 @@ namespace VRCHapticsLite
 
         private bool IsActive(int r, int g, int b)
         {
-            // if (r < 255 - COLOR_TOLERANCE) { return false; }
-            if (r < 128) { return false; }
+            if (r < 255 - COLOR_TOLERANCE) { return false; }
             if (g > COLOR_TOLERANCE) { return false; }
             if (b > COLOR_TOLERANCE) { return false; }
             return true;

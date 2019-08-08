@@ -36,7 +36,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="moduleNameBlock"/>
-        <Image     Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding Image.Value, Mode=OneWay}"/>
+        <Image     Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding Image.Value, Mode=OneWay}" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         <CheckBox  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" IsChecked="{Binding Enabled.Value, Mode=TwoWay}">Enabled</CheckBox>
         <TextBlock            Grid.Row= "6" Grid.Column="0" VerticalAlignment="Center">Power</TextBlock>
         <Slider               Grid.Row= "6" Grid.Column="2"
