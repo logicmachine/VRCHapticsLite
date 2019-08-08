@@ -194,7 +194,7 @@ namespace VRCHapticsLite
 
         private ObservableCollection<Process> EnumerateWindows()
         {
-            if (ApiInformation.IsApiContractPresent(typeof(Windows.Foundation.UniversalApiContract).FullName, 8))
+            if (ApiInformation.IsApiContractPresent(typeof(Windows.Foundation.UniversalApiContract).FullName, 7))
             {
                 var processesWithWindows =
                     from p in Process.GetProcesses()
