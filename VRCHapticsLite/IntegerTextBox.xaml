@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="VRCHapticsLite.IntegerTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VRCHapticsLite"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox
+            Grid.Column="0"
+            x:Name="textBox"
+            TextAlignment="Right"
+            LostFocus="TextBoxLostFocus"/>
+        <Button Grid.Column="1" Click="DecrementButtonClick" Padding="5,0,5,0" FontFamily="Consolas">-</Button>
+        <Button Grid.Column="2" Click="IncrementButtonClick" Padding="5,0,5,0" FontFamily="Consolas">+</Button>
+    </Grid>
+</UserControl>
