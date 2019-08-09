@@ -5,7 +5,7 @@ VRCHapticsLite
 **接触情報を画面上に映し出すアバター用 Prefab はこのリポジトリに含まれていません。**
 
 ## 動作環境
-- Windows 10 Version 1809 以上
+- Windows 10 Version 1903 以上
 - .NET Framework 4.7.2 以上
 
 ## 使用方法
