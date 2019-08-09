@@ -310,5 +310,149 @@ namespace VRCHapticsLite.Properties {
                 this["RightArm_Height"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("128")]
+        public int Active_MinR {
+            get {
+                return ((int)(this["Active_MinR"]));
+            }
+            set {
+                this["Active_MinR"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255")]
+        public int Active_MaxR {
+            get {
+                return ((int)(this["Active_MaxR"]));
+            }
+            set {
+                this["Active_MaxR"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Active_MinG {
+            get {
+                return ((int)(this["Active_MinG"]));
+            }
+            set {
+                this["Active_MinG"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int Active_MaxG {
+            get {
+                return ((int)(this["Active_MaxG"]));
+            }
+            set {
+                this["Active_MaxG"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Active_MinB {
+            get {
+                return ((int)(this["Active_MinB"]));
+            }
+            set {
+                this["Active_MinB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int Active_MaxB {
+            get {
+                return ((int)(this["Active_MaxB"]));
+            }
+            set {
+                this["Active_MaxB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Inactive_MinR {
+            get {
+                return ((int)(this["Inactive_MinR"]));
+            }
+            set {
+                this["Inactive_MinR"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int Inactive_MaxR {
+            get {
+                return ((int)(this["Inactive_MaxR"]));
+            }
+            set {
+                this["Inactive_MaxR"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Inactive_MinG {
+            get {
+                return ((int)(this["Inactive_MinG"]));
+            }
+            set {
+                this["Inactive_MinG"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int Inactive_MaxG {
+            get {
+                return ((int)(this["Inactive_MaxG"]));
+            }
+            set {
+                this["Inactive_MaxG"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Inactive_MinB {
+            get {
+                return ((int)(this["Inactive_MinB"]));
+            }
+            set {
+                this["Inactive_MinB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int Inactive_MaxB {
+            get {
+                return ((int)(this["Inactive_MaxB"]));
+            }
+            set {
+                this["Inactive_MaxB"] = value;
+            }
+        }
     }
 }

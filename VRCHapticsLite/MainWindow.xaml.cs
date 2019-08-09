@@ -56,6 +56,8 @@ namespace VRCHapticsLite
                         })
                     }),
                 vm.Head,
+                vm.ActiveColor,
+                vm.InactiveColor,
                 _player);
             _vestBridge = new HapticsBridge(
                 new HapticsBridgeParameters(
@@ -79,6 +81,8 @@ namespace VRCHapticsLite
                         }),
                     }),
                 vm.Vest,
+                vm.ActiveColor,
+                vm.InactiveColor,
                 _player);
             _leftArmBridge = new HapticsBridge(
                 new HapticsBridgeParameters(
@@ -93,6 +97,8 @@ namespace VRCHapticsLite
                         })
                     }),
                 vm.LeftArm,
+                vm.ActiveColor,
+                vm.InactiveColor,
                 _player);
             _rightArmBridge = new HapticsBridge(
                 new HapticsBridgeParameters(
@@ -107,6 +113,8 @@ namespace VRCHapticsLite
                         })
                     }),
                 vm.RightArm,
+                vm.ActiveColor,
+                vm.InactiveColor,
                 _player);
         }
 
@@ -138,6 +146,18 @@ namespace VRCHapticsLite
             dc.RightArm.Y.Value = settings.RightArm_Y;
             dc.RightArm.Width.Value = settings.RightArm_Width;
             dc.RightArm.Height.Value = settings.RightArm_Height;
+            dc.ActiveColor.MinR.Value = settings.Active_MinR;
+            dc.ActiveColor.MaxR.Value = settings.Active_MaxR;
+            dc.ActiveColor.MinG.Value = settings.Active_MinG;
+            dc.ActiveColor.MaxG.Value = settings.Active_MaxG;
+            dc.ActiveColor.MinB.Value = settings.Active_MinB;
+            dc.ActiveColor.MaxB.Value = settings.Active_MaxB;
+            dc.InactiveColor.MinR.Value = settings.Inactive_MinR;
+            dc.InactiveColor.MaxR.Value = settings.Inactive_MaxR;
+            dc.InactiveColor.MinG.Value = settings.Inactive_MinG;
+            dc.InactiveColor.MaxG.Value = settings.Inactive_MaxG;
+            dc.InactiveColor.MinB.Value = settings.Inactive_MinB;
+            dc.InactiveColor.MaxB.Value = settings.Inactive_MaxB;
         }
 
         private void StoreSettings()
@@ -168,6 +188,18 @@ namespace VRCHapticsLite
             settings.RightArm_Y = dc.RightArm.Y.Value;
             settings.RightArm_Width = dc.RightArm.Width.Value;
             settings.RightArm_Height = dc.RightArm.Height.Value;
+            settings.Active_MinR = dc.ActiveColor.MinR.Value;
+            settings.Active_MaxR = dc.ActiveColor.MaxR.Value;
+            settings.Active_MinG = dc.ActiveColor.MinG.Value;
+            settings.Active_MaxG = dc.ActiveColor.MaxG.Value;
+            settings.Active_MinB = dc.ActiveColor.MinB.Value;
+            settings.Active_MaxB = dc.ActiveColor.MaxB.Value;
+            settings.Inactive_MinR = dc.InactiveColor.MinR.Value;
+            settings.Inactive_MaxR = dc.InactiveColor.MaxR.Value;
+            settings.Inactive_MinG = dc.InactiveColor.MinG.Value;
+            settings.Inactive_MaxG = dc.InactiveColor.MaxG.Value;
+            settings.Inactive_MinB = dc.InactiveColor.MinB.Value;
+            settings.Inactive_MaxB = dc.InactiveColor.MaxB.Value;
             settings.Save();
         }
 

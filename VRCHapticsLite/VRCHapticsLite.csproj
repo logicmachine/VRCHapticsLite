@@ -15,6 +15,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,8 +33,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -96,6 +96,10 @@
     </ApplicationDefinition>
     <Compile Include="CaptureEngine.cs" />
     <Compile Include="CaptureHelper.cs" />
+    <Compile Include="ColorRangeControl.xaml.cs">
+      <DependentUpon>ColorRangeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorRangeViewModel.cs" />
     <Compile Include="Direct3D11Helper.cs" />
     <Compile Include="CapturedBitmap.cs" />
     <Compile Include="HapticsBridge.cs" />
@@ -109,6 +113,10 @@
     </Compile>
     <Compile Include="ModuleConfigViewModel.cs" />
     <Compile Include="WindowEnumerationHelper.cs" />
+    <Page Include="ColorRangeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="IntegerTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

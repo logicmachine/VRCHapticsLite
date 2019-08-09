@@ -48,31 +48,43 @@ namespace VRCHapticsLite
 
         private HapticsBridgeParameters _parameters;
         private ModuleConfigViewModel _config;
+        private ColorRangeViewModel _activeRange;
+        private ColorRangeViewModel _inactiveRange;
         private HapticsPlayer _player;
 
         public HapticsBridge(
             HapticsBridgeParameters parameters,
             ModuleConfigViewModel config,
+            ColorRangeViewModel activeRange,
+            ColorRangeViewModel inactiveRange,
             HapticsPlayer hapticsPlayer)
         {
             _parameters = parameters;
             _config = config;
+            _activeRange = activeRange;
+            _inactiveRange = inactiveRange;
             _player = hapticsPlayer;
         }
 
         private bool IsActive(int r, int g, int b)
         {
-            if (r < 255 - COLOR_TOLERANCE) { return false; }
-            if (g > COLOR_TOLERANCE) { return false; }
-            if (b > COLOR_TOLERANCE) { return false; }
+            int minR = _activeRange.MinR.Value, maxR = _activeRange.MaxR.Value;
+            int minG = _activeRange.MinG.Value, maxG = _activeRange.MaxG.Value;
+            int minB = _activeRange.MinB.Value, maxB = _activeRange.MaxB.Value;
+            if (r < minR || maxR < r) { return false; }
+            if (g < minG || maxG < g) { return false; }
+            if (b < minB || maxB < b) { return false; }
             return true;
         }
 
         private bool IsInactive(int r, int g, int b)
         {
-            if (r > COLOR_TOLERANCE) { return false; }
-            if (g > COLOR_TOLERANCE) { return false; }
-            if (b > COLOR_TOLERANCE) { return false; }
+            int minR = _inactiveRange.MinR.Value, maxR = _inactiveRange.MaxR.Value;
+            int minG = _inactiveRange.MinG.Value, maxG = _inactiveRange.MaxG.Value;
+            int minB = _inactiveRange.MinB.Value, maxB = _inactiveRange.MaxB.Value;
+            if (r < minR || maxR < r) { return false; }
+            if (g < minG || maxG < g) { return false; }
+            if (b < minB || maxB < b) { return false; }
             return true;
         }
 
