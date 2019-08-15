@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Interop;
 using Windows.Foundation.Metadata;
 using Windows.Graphics.Capture;
 using Windows.Graphics.DirectX.Direct3D11;
@@ -33,6 +34,8 @@ namespace VRCHapticsLite
         private HapticsBridge _vestBridge;
         private HapticsBridge _leftArmBridge;
         private HapticsBridge _rightArmBridge;
+
+        private IntPtr _hwnd;
 
         public MainWindow()
         {
@@ -215,7 +218,9 @@ namespace VRCHapticsLite
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            WindowComboBox.ItemsSource = EnumerateWindows();
+            var interopWindow = new WindowInteropHelper(this);
+            _hwnd = interopWindow.Handle;
+
             await _player.SetupAsync();
         }
 
@@ -224,37 +229,20 @@ namespace VRCHapticsLite
             StoreSettings();
         }
 
-        private ObservableCollection<Process> EnumerateWindows()
+        private async void SelectWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ApiInformation.IsApiContractPresent(typeof(Windows.Foundation.UniversalApiContract).FullName, 7))
-            {
-                var processesWithWindows =
-                    from p in Process.GetProcesses()
-                    where !string.IsNullOrWhiteSpace(p.MainWindowTitle)
-                       && WindowEnumerationHelper.IsWindowValidForCapture(p.MainWindowHandle)
-                    select p;
-                return new ObservableCollection<Process>(processesWithWindows);
-            }
-            else
-            {
-                return new ObservableCollection<Process>();
-            }
+            await StartPickerCaptureAsync();
         }
 
-        private void WindowListRefreshButton_Click(object sender, RoutedEventArgs e)
+        private async Task StartPickerCaptureAsync()
         {
-            WindowComboBox.ItemsSource = EnumerateWindows();
-        }
-
-        private void WindowComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var comboBox = (ComboBox)sender;
-            var process = (Process)comboBox.SelectedItem;
-            if(process != null)
+            var picker = new GraphicsCapturePicker();
+            picker.SetWindow(_hwnd);
+            var item = await picker.PickSingleItemAsync();
+            if(item != null)
             {
-                _capture?.Dispose();
-                var hwnd = process.MainWindowHandle;
-                var item = CaptureHelper.CreateItemForWindow(hwnd);
+                var dc = this.DataContext as MainViewModel;
+                dc.TargetName.Value = item.DisplayName;
                 StartCapture(item);
             }
         }

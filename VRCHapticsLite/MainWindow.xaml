@@ -20,24 +20,20 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox x:Name="WindowComboBox" Grid.Column="0" SelectionChanged="WindowComboBox_SelectionChanged">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding MainWindowTitle}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <Button x:Name="WindowListRefreshButton"
-                    Grid.Column="2"
-                    Padding="7,0,7,0"
-                    Click="WindowListRefreshButton_Click">
-                Refresh
+            <Button x:Name="SelectWindowButton"
+                    Grid.Column="0"
+                    Padding="7,3,7,3"
+                    Click="SelectWindowButton_Click">
+                Select Window
             </Button>
+            <TextBlock Grid.Column="2"
+                       VerticalAlignment="Center"
+                       Text="{Binding TargetName.Value, Mode=OneWay}"/>
         </Grid>
 
         <Grid Grid.Row="2">
