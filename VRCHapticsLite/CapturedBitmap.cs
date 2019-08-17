@@ -43,6 +43,7 @@ namespace VRCHapticsLite
                 var srcY0 = Math.Max(0, top);
                 var srcX1 = Math.Min(textureWidth,  Math.Max(0, left + width));
                 var srcY1 = Math.Min(textureHeight, Math.Max(0, top  + height));
+                if (srcX1 <= srcX0 || srcY1 <= srcY0) { return new byte[] { }; }
                 var region = new SharpDX.Direct3D11.ResourceRegion(srcX0, srcY0, 0, srcX1, srcY1, 1);
                 var dstX0 = Math.Max(0, -left);
                 var dstY0 = Math.Max(0, -top);

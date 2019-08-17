@@ -144,9 +144,12 @@ namespace VRCHapticsLite
                 }
             }
             // Update preview image
-            var bitmap = BitmapSource.Create(
-                w, h, 96.0, 96.0, PixelFormats.Bgra32, null, bytes, w * 4);
-            _config.Image.Value = bitmap;
+            if (bytes.Length > 0)
+            {
+                var bitmap = BitmapSource.Create(
+                    w, h, 96.0, 96.0, PixelFormats.Bgra32, null, bytes, w * 4);
+                _config.Image.Value = bitmap;
+            }
         }
     }
 }
